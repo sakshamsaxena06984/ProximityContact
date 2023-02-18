@@ -1,0 +1,127 @@
+body{
+	background: #e2e2e2!important;
+}
+
+/* it is class in css file */
+.bg-primary{
+	background: #009688 !important;
+}
+
+.banner{
+	width:100%;
+	height:93vh;
+	background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/imag1.jpg);
+	background-size:cover;
+	color:white;
+}
+
+.my-card{
+	padding: 20px;
+	background: #ffffff;
+	    overflow: hidden;
+    /* position: relative; */
+    width: 100%;
+}
+
+/* css for the login page */
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 420px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+.registration-shit{
+	   /*  display: inline-block;
+    text-align: right;
+    width: 100%; */
+    
+        width: 40%;
+    position: absolute;
+    right: 0;
+    padding-top: 1.5%;
+    
+}
+
+/* sidebar styling [it is inside base class]*/
+.sidebar{
+	width:18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+
+/*  [it is inside base class] */
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+	z-index: 999999999;
+}
+
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+
+.sidebar .divider{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+/* using media query */
+@media only screen and (max-width: 600px){
+	.sidebar{
+	display: none;
+	width:80% !important;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px; 
+   }
+   
+   .content{
+	margin-left: 0% !important;
+    }
+   
+   
+}
+
+
+/*  [it is inside base class] */
+.content{
+	margin-left:20%
+}
+
+.sidebar .crossBtn{
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+	    position: absolute;
+}
+/* 
+style for image */
+.my_profile_picture{
+	width: 35px;
+	height: 30px;
+	object-fit:cover;
+	  border-radius: 50%;
+}
+
+
+.p{
+  font-family: "Lucida Console", "Courier New", monospace;
+}

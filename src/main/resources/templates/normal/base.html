@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<title th:text="${title}">Base HTML</title>
+</head>
+<body>
+	<!-- it is navbar -->
+
+	<nav class=" fixed-top navbar navbar-expand-lg navbar-dark bg-primary">
+
+		<div class="container-fluid">
+
+			<a class="navbar-brand" href="#">ProximityContact</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto text-uppercase">
+
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							th:text="${user.name}"></span></a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+
+
+	<!-- this is sidebar -->
+	<div class="sidebar mt-1">
+		<span onclick="toggleSidebar()" class="crossBtn">&times;</span> <a
+			href="#" th:href="@{/user/index}" class="item"><i
+			class="fas fa-home"></i> Home</a> <a href="#" class="item" th:href="@{/user/show-contacts/0}">
+			<i class="fas fa-address-book"></i> View Contacts</a>              
+			<a href="#" th:href="@{/user/add-contact}" class="item"><i
+			class="fas fa-plus"></i> Add Contact</a> 
+			<a href="#" th:href="@{/user/profile}" class="item"><i class="fas fa-user"></i> Your Profile</a> 
+	<!-- 		<a href="#" class="item"><i class="fas fa-users-cog"></i> Settings</a>  -->
+			<a href="#" th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i>Logout</a>
+		<div class="divider"></div>
+	</div>
+
+	<!-- this is End-bar -->
+	<div class="content mt-5">
+		<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+		
+		<!-- message box for alerting the saving contact in the databases -->
+		<div th:if="${session.message}" class="container">
+		<div th:classappend="${'alert-'+session.message.type}" class="alert text-center" role="alert">
+		<span th:text="${session.message.content}"></span>
+		</div>
+		
+		<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
+		<div th:replace="${content}"></div>
+	</div>
+
+	<!-- End of content area -->
+
+
+
+
+   
+
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script>
+    function deleteContact(cid){
+    	swal({
+    		  title: "Are you sure?",
+    		  text: "You want to delete the contact",
+    		  icon: "warning",
+    		  buttons: true,
+    		  dangerMode: true,
+    		})
+    		.then((willDelete) => {
+    		  if (willDelete) {
+    		    window.location="/user/delete/"+cid;
+       		  } else {
+    		    swal("Your contact is safe");
+    		  }
+    		});
+    }
+    </script>
+	<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

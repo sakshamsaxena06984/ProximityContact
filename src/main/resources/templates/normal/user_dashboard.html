@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>User Dashboard</title>
+</head>
+<body>
+	<section>
+<!-- 		<h2>this for the normal user : or we can say, it is private
+			dashboard</h2>
+		<h1>
+			User name info <span th:text="${user.name}"></span>
+		</h1>
+		<h1>
+			User name info <span th:text="${user.email}"></span>
+		</h1>
+
+		<h1>
+			<a href="" th:href="@{/logout}">Logout</a>
+		</h1> -->
+		
+		<div class="container">
+		<div class="card">
+		<div class="card-body my-1">
+		
+		<div class="container text-center">
+		  <img style="height:200px; width:200px" class="my_profile_picture" th:alt="@{'/img/default.png'}" alt="" src="" th:src="@{'/img/'+${user.imageUrl}}">
+		  </div>
+		  <h1 class="text-center mt-3 text-secondary">
+		   Start Adding Your Contacts
+		  </h1>
+		</div>
+		 <a th:href="@{/user/add-contact}" class="btn btn-primary btn-block text-uppercase mt-3 "> Add New Contact</a>
+		</div>
+		</div>
+	</section>
+
+</body>
+</html>

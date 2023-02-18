@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Add Contact</title>
+</head>
+<body>
+	<section>
+
+		<div class="card">
+			<div class="card-body">
+				<h1 class="text-center">Add Contact</h1>
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+
+							<form action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process-contact}" class="mt-2">
+
+								<!-- firstname field -->
+								<!-- <div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-plus"></i>
+										</div>
+									</div>
+									<input type="text" id="firtName" name="name"
+										placeholder="Enter Name" class="form-control">
+								</div> -->
+								<div class="input-group mb-3">
+									<button class="btn btn-outline-secondary" type="button"
+										id="button-addon1"><i class="fa fa-plus"></i></button>
+									<input required="required" type="text" name="name" class="form-control" placeholder="Enter First Name"
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+								</div>
+								
+								<!-- secondName Field -->
+								<div class="input-group mb-3">
+									<button class="btn btn-outline-secondary" type="button"
+										id="button-addon1"><i class="fa fa-plus"></i></button>
+									<input required="required" type="text" name="secondName" class="form-control" placeholder="Enter Second Name"
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+								</div>
+								
+								<!-- phone field -->
+								
+								<div class="input-group mb-3">
+									<button class="btn btn-outline-secondary" type="button"
+										id="button-addon1"><i class="fa fa-plus"></i></button>
+									<input required type="text" name="phone" class="form-control" placeholder="Enter Phone"
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+								</div>
+								
+								<!-- email field -->
+								<div class="input-group mb-3">
+									<button class="btn btn-outline-secondary" type="button"
+										id="button-addon1"><i class="fa fa-plus"></i></button>
+									<input required="required" type="email" name="email" class="form-control" placeholder="Enter Email"
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+								</div>
+								
+								
+							<!-- 	work field -->
+							  
+								<div class="input-group mb-3">
+									<button class="btn btn-outline-secondary" type="button"
+										id="button-addon1"><i class="fa fa-plus"></i></button>
+									<input required="required" type="text" name="work" class="form-control" placeholder="Enter Work"
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+								</div>
+								
+								
+								<!-- contact description -->
+								<div class="input-group mb-3">
+									<textarea name="description" id="mytextarea" rows="10" class="form-control" placeholder="Enter Your Contact Description" cols="30" style="width:100%"></textarea>
+								</div>
+								
+								<!--  image field -->
+								
+								 <div class="custom-file">
+								<input type="file" name="profileImage" id="image" />
+								</div>
+								
+								<!-- submit button field -->
+								<div class="container text-center">
+								<button class="btn btn-outline-primary"> Save Contact</button>
+								</div>
+								
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+	</section>
+
+</body>
+</html>
